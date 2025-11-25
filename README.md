@@ -14,9 +14,9 @@ minimal maf 에서 fully annotated MAF를 만드는 pipeline
    - Python3 + pandas 설치됨
 
 # 사용법:
-   chmod +x minimal_maf_to_vcf2maf_maf.sh \
-   ./minimal_maf_to_vcf2maf_maf.sh minimal_maf_from_hgvs_vep_V2.maf
+   chmod +x minimal_maf_to_vep_maf_V.1.0.0.sh \
+   ./minimal_maf_to_vep_maf_V.1.0.0.sh minimal_maf_from_hgvs_vep_V2.maf
 
 
-#vcf2maf 실행 권한 필수!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# vcf2maf 실행 권한 필수!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  chmod +x /path/mskcc-vcf2maf-754d68a/vcf2maf.pl
