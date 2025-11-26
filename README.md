@@ -1,22 +1,22 @@
 # minimal_MAF_to_annotated_MAF_pipeline
-minimal maf 에서 fully annotated MAF를 만드는 pipeline
+Pipeline for creating annotated MAF from minimal MAF
 
-# 목적:
-   - minimal MAF (Chrom, Start, End, Ref, Alt, Sample ID만 있는 상태)를 \
-     ▶ 샘플별 VCF로 쪼갠 뒤 \
-     ▶ vcf2maf.pl 로 annotation 해서 \
-     ▶ 최종적으로 "표준 MAF" 하나로 합치는 파이프라인
+# purpose:
+   - minimal MAF (only Chrom, Start, End, Ref, Alt, Sample ID) \
+     ▶ After splitting into VCFs by sample \
+     ▶ Annotate with vcf2maf.pl \
+     ▶ Pipelines that ultimately merge into one "standard MAF"
 
-# 전제:
-   - MSKCC vcf2maf 설치됨 \
-     예) /home/wodn9614/mskcc-vcf2maf-754d68a/vcf2maf.pl \
-   - hg19.fa (GRCh37) FASTA 설치됨 \
-   - Python3 + pandas 설치됨
+# Requirements:
+   - MSKCC vcf2maf installed \
+     ex) /path/mskcc-vcf2maf-754d68a/vcf2maf.pl \
+   - hg19.fa (GRCh37) FASTA installed \
+   - Python3 + pandas installed
 
-# 사용법:
+# How to use:
    chmod +x minimal_maf_to_vep_maf_V.1.0.0.sh \
    ./minimal_maf_to_vep_maf_V.1.0.0.sh minimal_maf_from_hgvs_vep_V2.maf
 
 
-# vcf2maf 실행 권한 필수!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# vcf2maf Execute permission required!!!!!
  chmod +x /path/mskcc-vcf2maf-754d68a/vcf2maf.pl
