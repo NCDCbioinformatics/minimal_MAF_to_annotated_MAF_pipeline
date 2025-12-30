@@ -14,8 +14,8 @@ Pipeline for creating annotated MAF from minimal MAF
    - Python3 + pandas installed
 
 # How to use:
-   chmod +x minimal_maf_to_vep_maf_V.1.0.0.sh \
-   ./minimal_maf_to_vep_maf_V.1.0.0.sh minimal_maf_from_hgvs_vep_V2.maf
+   chmod +x minimal_maf_to_vep_maf_V.1.0.2.sh \
+   ./minimal_maf_to_vep_maf_V.1.0.2.sh minimal_maf_from_hgvs_vep_V2.maf
 
 
 # vcf2maf Execute permission required!!!!!
