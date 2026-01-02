@@ -1,5 +1,6 @@
 # minimal_MAF_to_annotated_MAF_pipeline
 Pipeline for creating annotated MAF from minimal MAF
+<img width="2406" height="1335" alt="image" src="https://github.com/user-attachments/assets/40f2bca9-4c30-4d8c-b140-37978c3722a6" />
 
 # purpose:
    - minimal MAF (only Chrom, Start, End, Ref, Alt, Sample ID) \
