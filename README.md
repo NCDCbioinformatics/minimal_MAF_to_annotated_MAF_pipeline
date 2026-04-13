@@ -23,7 +23,7 @@ Pipeline for creating annotated MAF from minimal MAF
  chmod +x /path/mskcc-vcf2maf-754d68a/vcf2maf.pl
 ## Publication context
 
-This repository is a component of the CURE-NGS panel harmonization framework described in the manuscript \"Multi-Institutional Harmonization Framework for Heterogeneous Panel-Based NGS in Precision Oncology.\"
+This repository is a component of the CURE-NGS panel harmonization framework described in the manuscript "Multi-Institutional Harmonization Framework for Heterogeneous Panel-Based NGS in Precision Oncology."
 
 Umbrella repository: https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework
 
