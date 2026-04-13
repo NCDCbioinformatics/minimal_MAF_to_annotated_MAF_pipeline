@@ -21,3 +21,14 @@ Pipeline for creating annotated MAF from minimal MAF
 
 # vcf2maf Execute permission required!!!!!
  chmod +x /path/mskcc-vcf2maf-754d68a/vcf2maf.pl
+## Publication context
+
+This repository is a component of the CURE-NGS panel harmonization framework described in the manuscript \"Multi-Institutional Harmonization Framework for Heterogeneous Panel-Based NGS in Precision Oncology.\"
+
+Umbrella repository: https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework
+
+## Software metadata
+
+- Operating system(s): Linux; Windows users can run supported workflows via WSL where needed
+- Programming language(s): Bash shell, Python
+- License: MIT License
