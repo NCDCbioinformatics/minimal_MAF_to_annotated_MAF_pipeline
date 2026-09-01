@@ -22,27 +22,33 @@ harmonization framework.
 
 1. Install [Docker Desktop](https://docs.docker.com/desktop/) or
    [Docker Engine](https://docs.docker.com/engine/install/).
-2. Build both the small reviewer image and full annotation image:
+2. Pull both public, version-pinned images without a GitHub login:
 
 ```bash
-git clone https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework.git
+docker pull ghcr.io/ncdcbioinformatics/cure-ngs-harmonizer:0.2.3-core
+docker pull ghcr.io/ncdcbioinformatics/cure-ngs-harmonizer:0.2.3
+```
+
+To build the identical `v0.2.3` release from source instead:
+
+```bash
+git clone --branch v0.2.3 --depth 1 https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework.git
 cd cure-ngs-panel-harmonization-framework
-docker build --file docker/Dockerfile.core --tag cure-ngs-harmonizer:0.1.0-core .
-docker build --file docker/Dockerfile --tag cure-ngs-harmonizer:0.1.0 .
+docker build --file docker/Dockerfile.core --tag cure-ngs-harmonizer:0.2.3-core .
+docker build --file docker/Dockerfile --tag cure-ngs-harmonizer:0.2.3 .
 ```
 
-After release `0.1.0` is published in the umbrella **Packages** panel:
-
-```bash
-docker pull ghcr.io/ncdcbioinformatics/cure-ngs-harmonizer:0.1.0-core
-docker pull ghcr.io/ncdcbioinformatics/cure-ngs-harmonizer:0.1.0
-```
+The component repository intentionally has no separate container package; use
+the umbrella repository's audited
+[`v0.2.3` distribution](https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework/releases/tag/v0.2.3).
 
 ## Verify and run this capability
 
 Test minimal-MAF-to-VCF conversion without large reference downloads:
 
 ```bash
+git clone --branch v0.2.3 --depth 1 https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework.git
+cd cure-ngs-panel-harmonization-framework
 bash scripts/run_reviewer_demo.sh
 ```
 
@@ -54,7 +60,8 @@ chmod 0777 output  # Linux: writable by the image's non-root UID 10001
 docker run --rm \
   --volume "$PWD/examples:/examples:ro" \
   --volume "$PWD/output:/data/output" \
-  cure-ngs-harmonizer:0.1.0-core minimal-maf-to-vcf \
+  ghcr.io/ncdcbioinformatics/cure-ngs-harmonizer:0.2.3-core \
+  minimal-maf-to-vcf \
   /examples/synthetic/minimal.grch37.maf /data/output/per-sample \
   --reference-fasta /examples/synthetic/tiny.grch37.fa \
   --assembly GRCh37
@@ -75,5 +82,6 @@ unified container removes those workstation-specific absolute-path assumptions.
 - [Minimal-MAF re-annotation commands](https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework/blob/main/docs/COMMAND_REFERENCE.md#minimal-maf-re-annotation-route)
 - [Synthetic minimal MAF](https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework/blob/main/examples/synthetic/minimal.grch37.maf)
 - [Reference-data setup](https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework/blob/main/docs/REFERENCE_DATA.md)
+- [Clean public-image validation](https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework/actions/runs/33350796468)
 
 License: MIT. No CURE-NGS patient-level data are distributed here.
