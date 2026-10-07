@@ -20,34 +20,41 @@ harmonization framework.
 
 ## Install the supported Docker distribution
 
+Use the 0.2.6 full image for real VEP/vcf2maf annotation; the old 0.2.5 full
+image has a deprecated VEP option incompatibility. Large matching FASTAs,
+VEP caches, and optional chains remain external read-only mounts. The core
+image alone cannot produce real VEP annotations. See the
+[Docker-only quickstart](https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework/blob/v0.2.6/docs/DOCKER_ONLY_QUICKSTART.md)
+and [hotfix verification scope](https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework/blob/v0.2.6/docs/ANNOTATION_HOTFIX.md).
+
 1. Install [Docker Desktop](https://docs.docker.com/desktop/) or
    [Docker Engine](https://docs.docker.com/engine/install/).
 2. Pull both public, version-pinned images without a GitHub login:
 
 ```bash
-docker pull ghcr.io/ncdcbioinformatics/cure-ngs-harmonizer:0.2.3-core
-docker pull ghcr.io/ncdcbioinformatics/cure-ngs-harmonizer:0.2.3
+docker pull ghcr.io/ncdcbioinformatics/cure-ngs-harmonizer:0.2.6-core
+docker pull ghcr.io/ncdcbioinformatics/cure-ngs-harmonizer:0.2.6
 ```
 
-To build the identical `v0.2.3` release from source instead:
+To build the identical `v0.2.6` release from source instead:
 
 ```bash
-git clone --branch v0.2.3 --depth 1 https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework.git
+git clone --branch v0.2.6 --depth 1 https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework.git
 cd cure-ngs-panel-harmonization-framework
-docker build --file docker/Dockerfile.core --tag cure-ngs-harmonizer:0.2.3-core .
-docker build --file docker/Dockerfile --tag cure-ngs-harmonizer:0.2.3 .
+docker build --file docker/Dockerfile.core --tag cure-ngs-harmonizer:0.2.6-core .
+docker build --file docker/Dockerfile --tag cure-ngs-harmonizer:0.2.6 .
 ```
 
 The component repository intentionally has no separate container package; use
 the umbrella repository's audited
-[`v0.2.3` distribution](https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework/releases/tag/v0.2.3).
+[`v0.2.6` distribution](https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework/releases/tag/v0.2.6).
 
 ## Verify and run this capability
 
 Test minimal-MAF-to-VCF conversion without large reference downloads:
 
 ```bash
-git clone --branch v0.2.3 --depth 1 https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework.git
+git clone --branch v0.2.6 --depth 1 https://github.com/NCDCbioinformatics/cure-ngs-panel-harmonization-framework.git
 cd cure-ngs-panel-harmonization-framework
 bash scripts/run_reviewer_demo.sh
 ```
@@ -60,7 +67,7 @@ chmod 0777 output  # Linux: writable by the image's non-root UID 10001
 docker run --rm \
   --volume "$PWD/examples:/examples:ro" \
   --volume "$PWD/output:/data/output" \
-  ghcr.io/ncdcbioinformatics/cure-ngs-harmonizer:0.2.3-core \
+  ghcr.io/ncdcbioinformatics/cure-ngs-harmonizer:0.2.6-core \
   minimal-maf-to-vcf \
   /examples/synthetic/minimal.grch37.maf /data/output/per-sample \
   --reference-fasta /examples/synthetic/tiny.grch37.fa \
